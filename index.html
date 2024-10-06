@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BC56-FRONTEND-REACT-NTT</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="/src/style/navbar.css" />
+    <link rel="stylesheet" type="text/css" href="/src/style/products.css" />
+<body>
+
+    <nav class="nav-container">
+        <div class="nav-div">
+            <img class="navbar-image" src="/images/logo.avif" alt="logo" width="75" height="75">
+            <h2 class="">NTT market</h2>
+        </div>
+        <div class="nav-carrito" style="position: relative;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-shopping-cart">
+                <circle cx="8" cy="21" r="1" />
+                <circle cx="19" cy="21" r="1" />
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+            </svg>
+            <div class="nav-badge" id="count-counter">0</div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="search-container">
+            <input type="text" id="search" class="input-search" placeholder="Buscar producto..." />
+            <select id="category-select" class="select-category">
+                <option value="">Todas las categorías</option>
+            </select>
+        </div>
+
+        <span class="loader block"></span>
+        <div id="productos" class="product-container hidden"></div>
+    </main>
+</body>
+<script type="module" src="/src/js/app.js"></script>
+
+</html>
