@@ -1,16 +1,18 @@
-import { FECHT } from "../lib/fecht.js"
+import { ICategories } from "@/interface/categories"
+import { IProducts } from "@/interface/products"
+import { FECHT } from "../lib/fecht"
 
-const productosContainer = document.getElementById("productos")
-const loader = document.querySelector(".loader")
-const cartCounter = document.getElementById("count-counter")
-const searchInput = document.getElementById("search")
-const categorySelect = document.getElementById("category-select")
+const productosContainer = document.getElementById("productos") as HTMLElement
+const loader = document.querySelector(".loader") as HTMLElement
+const cartCounter = document.getElementById("count-counter") as HTMLElement
+const searchInput = document.getElementById("search") as HTMLInputElement
+const categorySelect = document.getElementById("category-select") as HTMLSelectElement
 
-let cartCount = 0
-let allProducts = []
-let categories = []
+let cartCount : number = 0
+let allProducts : IProducts[] = []
+let categories : ICategories[] = []
 
-async function initApp() {
+async function initApp() : Promise<void> {
     try {
         showLoader()
         const [productsData, categoriesData] = await Promise.all([
@@ -22,7 +24,7 @@ async function initApp() {
         populateCategorySelect()
         renderProducts(allProducts)
         setupEventListeners()
-    } catch (error) {
+    } catch (error : unknown) {
         console.error("Error: ", error)
         showError("Algo Salió Mal :c")
     } finally {
@@ -31,20 +33,20 @@ async function initApp() {
 }
 
 function showLoader() {
-    loader.classList.remove("hidden")
-    productosContainer.classList.add("hidden")
+    loader?.classList.remove("hidden")
+    productosContainer?.classList.add("hidden")
 }
 
 function hideLoader() {
-    loader.classList.add("hidden")
-    productosContainer.classList.remove("hidden")
+    loader?.classList.add("hidden")
+    productosContainer?.classList.remove("hidden")
 }
 
-function showError(message) {
+function showError(message : string) {
     const errorMessage = document.createElement("p")
     errorMessage.textContent = message
-    productosContainer.appendChild(errorMessage)
-    productosContainer.classList.toggle("error")
+    productosContainer?.appendChild(errorMessage)
+    productosContainer?.classList.toggle("error")
 }
 
 function populateCategorySelect() {
@@ -52,17 +54,17 @@ function populateCategorySelect() {
         const option = document.createElement("option")
         option.value = category.name
         option.textContent = category.name
-        categorySelect.appendChild(option)
+        categorySelect?.appendChild(option)
     })
 }
 
 function setupEventListeners() {
-    searchInput.addEventListener("input", filterProducts)
+    searchInput?.addEventListener("input", filterProducts)
     categorySelect.addEventListener("change", filterProducts)
 }
 
-function renderProducts(products) {
-    while (productosContainer.firstChild) {
+function renderProducts(products : IProducts[]) {
+    while (productosContainer?.firstChild) {
         productosContainer.removeChild(productosContainer.firstChild)
     }
 
@@ -73,14 +75,14 @@ function renderProducts(products) {
         fragment.appendChild(cardProduct)
     })
 
-    productosContainer.appendChild(fragment)
+    productosContainer?.appendChild(fragment)
 }
 
-function createProductCard(item, index) {
+function createProductCard(item : IProducts , index : number) {
     const cardProduct = document.createElement("div")
     cardProduct.classList.add("card-product")
     cardProduct.setAttribute("data-name", item.title)
-    cardProduct.setAttribute("key", index)
+    cardProduct.setAttribute("key", index.toString())
 
     const imageContainer = document.createElement("div")
     imageContainer.classList.add("card-image-container")
@@ -137,7 +139,7 @@ function createProductCard(item, index) {
 }
 
 function filterProducts() {
-    const searchTerm = searchInput.value.toLowerCase();
+    const searchTerm  = searchInput?.value?.toLowerCase();
     const selectedCategory = categorySelect.value.toLowerCase();
 
     const filteredProducts = allProducts.filter((product) => {
@@ -150,7 +152,7 @@ function filterProducts() {
 }
 
 function updateCartCount() {
-    cartCounter.textContent = cartCount
+    cartCounter.textContent = cartCount.toString()
 }
 
 initApp()

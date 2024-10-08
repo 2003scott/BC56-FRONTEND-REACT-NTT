@@ -1,5 +1,5 @@
 
-export async function FECHT(url) {
+export async function FECHT(url : string)  {
     try {
         const response = await fetch(`${import.meta.env.VITE_API_URL}${url}`, {
             cache : "force-cache",
@@ -8,7 +8,7 @@ export async function FECHT(url) {
             }
         })
         return response.json()
-    } catch (error) {
+    } catch (error : unknown) {
         console.log(error)
     }
 }

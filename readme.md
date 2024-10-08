@@ -10,13 +10,16 @@ La estructura de carpetas del proyecto es la siguiente:
 ```
 ├─ public
 ├─ src
-│  ├─ js
-│  │  └─ app.js
+│  ├─ interface
+│  │  └─ categories.d.ts
+│  │  └─ products.d.ts
 │  ├─ lib
-│  │  └─ fecht.js
+│  │  └─ fecht.ts
 │  └─ style
-│     ├─ navbar.css
-│     └─ products.css
+│  │  ├─ navbar.css
+│  │  └─ products.css
+│  ├─ ts
+│  │  └─ app.ts
 ├─ .editorconfig
 ├─ .env
 ├─ .gitignore
@@ -26,7 +29,8 @@ La estructura de carpetas del proyecto es la siguiente:
 ```
 
 src: Contiene la mayor parte del código fuente del proyecto.
---- js: Incluye todo el código relacionado con JavaScript.
+--- ts: Incluye todo el código relacionado con TypeScript.
+--- interface : Contiene el tipado de los fecht que es productos y categorias
 --- lib: Almacena un custom fetch con funcionalidades personalizadas para realizar peticiones.
 --- style: Contiene la mayoría de los estilos CSS del proyecto.
 index.html: Contiene la estructura base del HTML.
@@ -45,4 +49,11 @@ Para iniciar la aplicación, utiliza el siguiente comando
 
 ```sh
 npm run dev
+```
+
+## BUILD
+Para hacer el build de la app, hacer un js , css y html, se creara un carpeta dist
+
+```sh
+npm run build
 ```
