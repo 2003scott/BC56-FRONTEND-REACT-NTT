@@ -16,6 +16,7 @@ La estructura de carpetas del proyecto es la siguiente:
 │  ├─ lib
 │  │  └─ fecht.ts
 │  └─ style
+│  │  └─ footer.css
 │  │  ├─ navbar.css
 │  │  └─ products.css
 │  ├─ ts

@@ -1,0 +1,22 @@
+.container-footer {
+    background-color: var(--black-color);
+    color: white;
+    padding: 2rem;
+    font-size: 0.9rem;
+}
+
+.div-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap : 5px;
+    text-align: center;
+}
+
+.icons-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap : 10px;
+}
