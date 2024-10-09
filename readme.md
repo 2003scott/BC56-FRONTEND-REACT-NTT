@@ -1,7 +1,7 @@
-# Proyecto de Mini Market HTML , CSS Y JS
+# Proyecto de Mini Market HTML , CSS Y TS
 
 ## Descripción
-Este proyecto se base en la primera parte de diseño y estilos , y uso de javascript, esta solucion esta contruida con vite(vanilla).
+Esta es la segunda semana donde se migra todo el proyecyo market a typescript, esta solucion esta construida con vite(vanilla).
 
 ## Estructura de Carpetas
 
