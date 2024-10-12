@@ -1,0 +1,53 @@
+.not-found-container {
+    padding: 80px 0;
+    background-color: white;
+    width: 100%;
+    min-height: 100vh;
+    color: black;
+}
+
+.image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.not-found-image-container {
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 480px;
+    width: 100%;
+    background-image: url('https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif');
+}
+
+.not-found-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.not-found-inner {
+    margin-top: -50px;
+}
+
+.not-found-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.not-found-logo img {
+    max-width: 100px;
+}
+
+.not-found-subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.not-found-text {
+    color: #4b5563;
+    padding-bottom: 20px;
+    text-align: center;
+}
