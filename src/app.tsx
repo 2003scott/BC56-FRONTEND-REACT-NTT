@@ -2,10 +2,11 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Home } from './pages/home'
 import { ErrorPage } from './pages/error'
 import { MainLayout } from './layout/main-layout'
+import { CartContext } from './context/cart-context'
 
 function App() {
     return (
-        <>
+        <CartContext>
             <BrowserRouter>
                 <MainLayout>
                     <Routes>
@@ -14,7 +15,7 @@ function App() {
                     </Routes>
                 </MainLayout>
             </BrowserRouter>
-        </>
+        </CartContext>
     )
 }
 

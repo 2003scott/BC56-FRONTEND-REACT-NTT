@@ -1,16 +1,12 @@
 import React from "react"
 import "./style.css"
 
-interface ButtonProps {
-    children: React.ReactNode
-    type? : "button" | "submit" | "reset"
-    onClick? : () => void
-}
+export interface ButtonProps
+    extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 
-export const Button = ({ children, type = "button", onClick } : ButtonProps) => {
-    return (
-        <button type={type} onClick={() => onClick} className="button">
-            {children}
-        </button>
-    )
-}
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>( ({...props }, ref) => {
+        return (
+            <button className="button" ref={ref} {...props}/>
+        )
+    }
+)
