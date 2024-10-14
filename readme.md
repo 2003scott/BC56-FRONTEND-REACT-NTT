@@ -1,7 +1,7 @@
-# Proyecto de Mini Market HTML , CSS Y TS
+# Proyecto de Mini Market REACT + TYPESCRIPT
 
 ## Descripción
-Esta es la segunda semana donde se migra todo el proyecyo market a typescript, esta solucion esta construida con vite(vanilla).
+Semana 
 
 ## Estructura de Carpetas
 
@@ -10,17 +10,20 @@ La estructura de carpetas del proyecto es la siguiente:
 ```
 ├─ public
 ├─ src
+│  ├─ components
+│  │  └─ core
+│  │  └─ custom
+│  │  └─ ui
+│  ├─ context
+│  ├─ hooks
 │  ├─ interface
-│  │  └─ categories.d.ts
-│  │  └─ products.d.ts
+│  ├─ layout
 │  ├─ lib
-│  │  └─ fecht.ts
+│  ├─ pages
 │  └─ style
-│  │  └─ footer.css
-│  │  ├─ navbar.css
-│  │  └─ products.css
-│  ├─ ts
-│  │  └─ app.ts
+│  └─ app.tsx
+│  └─ index.css
+│  └─ main.tsx
 ├─ .editorconfig
 ├─ .env
 ├─ .gitignore
@@ -29,13 +32,18 @@ La estructura de carpetas del proyecto es la siguiente:
 └─ style.css
 ```
 
-src: Contiene la mayor parte del código fuente del proyecto.
---- ts: Incluye todo el código relacionado con TypeScript.
---- interface : Contiene el tipado de los fecht que es productos y categorias
---- lib: Almacena un custom fetch con funcionalidades personalizadas para realizar peticiones.
---- style: Contiene la mayoría de los estilos CSS del proyecto.
-index.html: Contiene la estructura base del HTML.
-style.css: Almacena los estilos globales aplicados en la aplicación.
+src: Contiene codigo fuente.</br>
+- Components : Componentes reutilizables</br>
+-- core : Contiene codigo que no se a modifcar mucho y algo compartido
+-- custom : Contiene componenetes personalizados
+-- ui : Componentes de interfaz de usuario
+- hooks : Hooks personalizados para ahorrar codigo repetitivo con logica personalizada
+- interface : definiciones de interfaces de typescript
+- pages : Contenido de paginas
+- styles : Contiene contenido responsivo de products
+- App.tsx : Componente principal de la aplicaicon
+- index.css : stylos globales para la app
+- main.tsx : punto de entrada de la aplicacion
 
 
 ## Instalación
