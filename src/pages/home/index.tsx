@@ -1,12 +1,12 @@
 import { Loader } from "@/components/ui/loader"
 import { useFetch } from "@/hooks/useFecth"
-import { IProducts } from "@/interface/products"
-import { ErrorPage } from "./error"
+import { IProducts, Products } from "@/interface/products"
 import { ProductCard } from "@/components/custom/product-card"
 import { Inputform } from "@/components/custom/input-form"
 import { useState } from "react"
 import { ICategories } from "@/interface/categories"
 import "@/styles/products.css"
+import { ErrorPage } from "../error"
 
 
 export const Home = () => {
@@ -42,15 +42,7 @@ export const Home = () => {
                 </select>
             </div>
             <div className="product-container">
-                {filteredProducts?.map((item) => (
-                    <ProductCard key={item.id}
-                        title={item.title}
-                        image={item.images[0]}
-                        price={item.price}
-                        category={item.category}
-                        discription={item.description}
-                    />
-                ))}
+                <ProductCard data={filteredProducts as Products[]} />
             </div>
         </div>
     )

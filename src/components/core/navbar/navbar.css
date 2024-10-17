@@ -18,6 +18,8 @@
     gap: 10px;
     text-transform: capitalize;
     font-size: 0.8rem;
+    text-decoration: none;
+    color: white;
 }
 
 .navbar-image {
@@ -27,6 +29,8 @@
 .nav-carrito {
     position: relative;
     display: inline-block;
+    color: white;
+    text-decoration: none;
 }
 
 .nav-badge {

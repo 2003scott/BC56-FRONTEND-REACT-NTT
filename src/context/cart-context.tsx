@@ -1,37 +1,51 @@
-import { createContext, useContext, useState } from "react"
+import { cartInitialState, CartItem, cartReducer } from '@/redurcers/cart-reducer'
+import { useReducer, createContext, ReactNode } from 'react'
 
-interface CardContextType {
-    cartItems: number
-    addToCart: () => void
+interface CartContextType {
+  cart: CartItem[];
+  addToCart: (product: CartItem) => void;
+  removeFromCart: (product: CartItem) => void;
+  clearCart: (product: CartItem) => void;
 }
 
-const createCartContext = createContext<CardContextType | null>(null)
+export const CartContext = createContext<CartContextType | undefined>(undefined)
 
-export const CartContext = ({ children }: { children: React.ReactNode }) => {
+function useCartReducer() {
+  const [state, dispatch] = useReducer(cartReducer, cartInitialState)
 
-    const [cartItems, setCartItems] = useState<number>(0)
+  const addToCart = (product: CartItem) => dispatch({
+    type: 'ADD_TO_CART',
+    payload: product,
+  })
 
-    const addToCart = () => {
-        setCartItems(cartItems + 1)
-    }
+  const removeFromCart = (product: CartItem) => dispatch({
+    type: 'REMOVE_FROM_CART',
+    payload: product,
+  });
 
-    return (
-        <createCartContext.Provider value={{ cartItems, addToCart }}>
-            {children}
-        </createCartContext.Provider>
-    )
+  const clearCart = (product : CartItem) => dispatch({
+      type: 'CLEAR_CART',
+      payload: product
+  })
+
+  return { state, addToCart, removeFromCart, clearCart }
 }
 
-export const useCart = () : CardContextType => {
-
-    const context = useContext(createCartContext)
-
-    if (!context) {
-        throw new Error("useCart debe usarse dentro de un CarContext")
-    }
-
-    return context
-
+interface CartProviderProps {
+  children: ReactNode;
 }
 
+export function CartProvider({ children }: CartProviderProps) {
+  const { state, addToCart, removeFromCart, clearCart } = useCartReducer()
 
+  return (
+    <CartContext.Provider value={{
+      cart: state,
+      addToCart,
+      removeFromCart,
+      clearCart,
+    }}>
+      {children}
+    </CartContext.Provider>
+  )
+}
