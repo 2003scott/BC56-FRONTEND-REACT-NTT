@@ -1,0 +1,129 @@
+.resumen-container {
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.resumen-title {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.resumen-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.resumen-table th,
+.resumen-table td {
+    padding: 10px;
+    white-space: nowrap;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.resumen-table thead {
+    background-color: #f4f4f4;
+}
+
+.resumen-product-image {
+    border-radius: 8px;
+}
+
+.resumen-button {
+    padding: 8px 12px;
+    margin: 0 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.resumen-button:hover {
+    background-color: #45a049;
+}
+
+.resumen-button:active {
+    background-color: #3e8e41;
+}
+
+.resumen-button[disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.resumen-table td:first-child {
+    width: 60px;
+}
+
+.resumen-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.resumen-remove {
+    color: red;
+    cursor: pointer;
+}
+
+.resumen-footer {
+    font-weight: bold;
+    background-color: #f4f4f4;
+}
+
+.resumen-footer td {
+    padding-top: 15px;
+}
+
+.resumen-footer td[colspan="2"] {
+    text-align: right;
+    padding-right: 20px;
+}
+
+.resumen-footer td:last-child {
+    color: #333;
+}
+
+.resume-quantity {
+    width: 40px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 0 5px;
+}
+
+.resume-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.resuman-select {
+    padding: 10px;
+    border: 1px solid #D4D4D4;
+    border-radius: 10px;
+    outline: none;
+    width: 100%;
+}
+
+.resuman-error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.resuman-content-select {
+    font-size: 0.9rem;
+    font-weight: 500;
+    gap: 4px;
+    display: flex;
+    flex-direction: column;
+}

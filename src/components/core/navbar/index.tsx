@@ -1,7 +1,7 @@
 import { TiShoppingCart } from "react-icons/ti"
 import "./navbar.css"
-import { useCart } from "@/hooks/useCart"
 import { Link } from "react-router-dom"
+import { useCart } from "@/context/cart-context"
 
 export const Navbar = () => {
 

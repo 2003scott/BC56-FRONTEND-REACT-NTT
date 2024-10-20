@@ -4,10 +4,12 @@ import { MainLayout } from './layout/main-layout'
 import { CartProvider } from './context/cart-context'
 import { Resuman } from './pages/resuman'
 import { Home } from './pages/home'
+import { Toaster } from 'react-hot-toast'
 
 function App() {
     return (
         <CartProvider>
+            <Toaster position="top-center" reverseOrder={false} />
             <BrowserRouter>
                 <MainLayout>
                     <Routes>

@@ -20,6 +20,7 @@ La estructura de carpetas del proyecto es la siguiente:
 │  ├─ layout
 │  ├─ lib
 │  ├─ pages
+│  └─ reducers
 │  └─ style
 │  └─ app.tsx
 │  └─ index.css
@@ -40,6 +41,7 @@ src: Contiene codigo fuente.</br>
 - hooks : Hooks personalizados para ahorrar codigo repetitivo con logica personalizada
 - interface : definiciones de interfaces de typescript
 - pages : Contenido de paginas
+- reducers : Contiene logica de negocio
 - styles : Contiene contenido responsivo de products
 - App.tsx : Componente principal de la aplicaicon
 - index.css : stylos globales para la app
