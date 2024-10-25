@@ -5,6 +5,7 @@ import { CartProvider } from './context/cart-context'
 import { Resuman } from './pages/resuman'
 import { Home } from './pages/home'
 import { Toaster } from 'react-hot-toast'
+import { route } from './routes'
 
 function App() {
     return (
@@ -13,8 +14,8 @@ function App() {
             <BrowserRouter>
                 <MainLayout>
                     <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/resuman" element={<Resuman />} />
+                        <Route path={route.home} element={<Home />} />
+                        <Route path={route.resuman} element={<Resuman />} />
                         <Route path="*" element={<ErrorPage mensaje='Ruta no encontrada' />} />
                     </Routes>
                 </MainLayout>

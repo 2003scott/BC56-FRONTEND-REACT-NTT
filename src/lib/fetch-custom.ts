@@ -25,19 +25,19 @@ export const FETCH = { async request(method: string, url: string, data = null as
         return this.request('GET', url)
     },
 
-    async post(url: string, data: unknown) {
-        return this.request('POST', url, data)
-    },
+    // async post(url: string, data: unknown) {
+    //     return this.request('POST', url, data)
+    // },
 
-    async put(url: string, data: unknown) {
-        return this.request('PUT', url, data)
-    },
+    // async put(url: string, data: unknown) {
+    //     return this.request('PUT', url, data)
+    // },
 
-    async pacht(url: string, data: unknown) {
-        return this.request('PUT', url, data)
-    },
+    // async pacht(url: string, data: unknown) {
+    //     return this.request('PUT', url, data)
+    // },
 
-    async delete(url: string) {
-        return this.request('DELETE', url)
-    }
+    // async delete(url: string) {
+    //     return this.request('DELETE', url)
+    // }
 }

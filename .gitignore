@@ -27,4 +27,8 @@ dist-ssr
 package-lock.json
 
 #build
-dist
+tsconfig.app.tsbuildinfo
+tsconfig.node.tsbuildinfo
+
+# coverage
+coverage

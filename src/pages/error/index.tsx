@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { Link } from 'react-router-dom'
 import './error.css'
+import { route } from '@/routes'
 
 export const ErrorPage = ({ mensaje } : { mensaje : string}) => {
     return (
@@ -19,7 +20,7 @@ export const ErrorPage = ({ mensaje } : { mensaje : string}) => {
                                 {mensaje}
                             </h3>
                             <p className="not-found-text">¡Algo salio mal!</p>
-                            <Link to="/">
+                            <Link to={route.home}>
                                 <Button>
                                     Volver al Inicio
                                 </Button>

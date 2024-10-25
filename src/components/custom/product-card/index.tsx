@@ -13,7 +13,8 @@ export const ProductCard = ({ data }: { data: Products[] }) => {
 
     return (
         <>
-            {data?.map((item) => {
+            {data && data.length > 0 ? (
+                data?.map((item) => {
                 const isProductInCart = checkProductInCart(item)
                 return (
                     <div className="card-product" key={item.id}>
@@ -41,8 +42,10 @@ export const ProductCard = ({ data }: { data: Products[] }) => {
                             </Button>
                         </article>
                     </div>
-                )
-            })}
+                )})
+            ) : (
+                <p className='text-product-not-available'>No hay productos para Mostrar</p>
+            )}
         </>
 
     )
