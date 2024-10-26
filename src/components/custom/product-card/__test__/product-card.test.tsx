@@ -31,6 +31,20 @@ describe('Test ProductCard Component', () => {
         })
     })
 
+    test('Test add to cart', () => {
+        render(<ProductCard data={mockProductsResponse.products} />)
+        const button = screen.getAllByRole('button')[0]
+        button.click()
+        expect(useCart().addToCart).toHaveBeenCalledTimes(1)
+    })
+
+    test('Test remove from cart', () => {
+        render(<ProductCard data={mockProductsResponse.products} />)
+        const button = screen.getAllByRole('button')[0]
+        button.click()
+        button.click()
+    })
+
     test('Test render Product Card - not data', () => {
         render(<ProductCard data={[]} />)
         const message = screen.getByText("No hay productos para Mostrar")
