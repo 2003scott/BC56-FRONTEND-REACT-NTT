@@ -1,23 +1,20 @@
 import { renderHook, waitFor } from '@testing-library/react'
-import { FETCH } from '@/lib/fetch-custom'
-import { useFetch } from '../useFecth'
 import { mockProductsResponse } from '@/mocks/products/product.mock'
 import { IProducts } from '@/interface/products'
+import { useFetch } from '../useFecth';
 
-jest.mock('@/lib/fetch-custom', () => ({
-    FETCH: {
-        get: jest.fn()
-    }
-}))
+global.fetch = jest.fn();
 
-describe('Test Cumstom Hook UseFecth', () => {
-
+describe('Test Custom Hook useFetch', () => {
     beforeEach(() => {
         jest.clearAllMocks()
     })
 
     test("Test correctly", async () => {
-        (FETCH.get as jest.Mock).mockResolvedValueOnce(mockProductsResponse)
+        (fetch as jest.Mock).mockResolvedValueOnce({
+            ok: true,
+            json: jest.fn().mockResolvedValueOnce(mockProductsResponse),
+        })
 
         const { result } = renderHook(() => useFetch<IProducts>('/products'))
 
@@ -39,11 +36,13 @@ describe('Test Cumstom Hook UseFecth', () => {
         expect(firstProduct).toHaveProperty('price')
         expect(firstProduct).toHaveProperty('reviews')
         expect(Array.isArray(firstProduct?.reviews)).toBe(true)
+
+        expect(fetch).toHaveBeenCalledWith('https://dummyjson.com/products')
     })
 
     test("Test for error", async () => {
-        const mockError = new Error('Failed to fetch products');
-        (FETCH.get as jest.Mock).mockRejectedValueOnce(mockError)
+        const mockError = new Error("Network Error");
+        (fetch as jest.Mock).mockRejectedValueOnce(mockError)
 
         const { result } = renderHook(() => useFetch<IProducts>('/products'))
 
@@ -51,24 +50,29 @@ describe('Test Cumstom Hook UseFecth', () => {
             expect(result.current.isLoading).toBe(false)
         })
 
-        expect(result.current.error).toBe(mockError)
-        expect(result.current.data).toBeUndefined()
-    })
+        expect(result.current.error).toEqual(mockError)
+    });
 
-    test("Test state of charge" , async () => {
-        (FETCH.get as jest.Mock)
-            .mockResolvedValueOnce(mockProductsResponse)
-            .mockImplementationOnce(() => new Promise(resolve => setTimeout(() => resolve({ products: [] }), 100)))
+    test("Test state of charge", async () => {
+        (fetch as jest.Mock)
+            .mockResolvedValueOnce({
+                ok: true,
+                json: jest.fn().mockResolvedValueOnce(mockProductsResponse),
+            })
+            .mockResolvedValueOnce({
+                ok: true,
+                json: jest.fn().mockResolvedValueOnce({ products: [] }),
+            });
 
-        const { result, rerender } = renderHook(() => useFetch<IProducts>('/products'))
+        const { result, rerender } = renderHook(() => useFetch<IProducts>('/products'));
 
         await waitFor(() => {
-            expect(result.current.isLoading).toBe(false)
-        })
+            expect(result.current.isLoading).toBe(false);
+        });
 
-        const initialData = result.current.data
+        const initialData = result.current.data;
 
         rerender()
-        expect(result.current.data).toEqual(initialData)
+        expect(result.current.data).toEqual(initialData);
     })
 })

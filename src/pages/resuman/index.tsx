@@ -106,7 +106,7 @@ export const Resuman = () => {
                         <label>Distrito</label>
                         <select {...register("distrito", { required: true })} className="resuman-select">
                             <option value="">Seleccione un distrito</option>
-                            {distritos.distritos.map((item: any) => (
+                            {distritos.distritos.map((item) => (
                                 <option key={item.nombre} value={item.nombre}>
                                     {item.nombre}
                                 </option>

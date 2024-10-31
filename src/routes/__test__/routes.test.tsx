@@ -14,4 +14,8 @@ describe('Test Routes', () => {
     test('resuman route is correct', () => {
         expect(route.resuman).toBe('/resuman')
     })
-});
+
+    test('login route is correct', () => {
+        expect(route.login).toBe('/login')
+    })
+})

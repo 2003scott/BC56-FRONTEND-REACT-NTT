@@ -1,0 +1,21 @@
+.content-login {
+    max-width: 500px;
+    margin: auto;
+}
+
+.form-contend {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 2rem;
+}
+
+.login-olvidado{
+    text-align: right;
+    margin-top: 10px;
+    color: blue;
+}

@@ -1,4 +1,3 @@
-import { FETCH } from "@/lib/fetch-custom"
 import { useEffect, useState } from "react"
 
 export const useFetch = <T,>(url: string) => {
@@ -11,8 +10,8 @@ export const useFetch = <T,>(url: string) => {
         const fetchData = async () => {
             setIsLoading(true)
             try {
-                const data = await FETCH.get(url)
-                setData(data)
+                const data = await fetch(`https://dummyjson.com${url}`)
+                setData(await data.json())
                 setIsLoading(false)
             } catch (error : unknown) {
                 setIsLoading(false)
@@ -20,7 +19,7 @@ export const useFetch = <T,>(url: string) => {
             }
         }
         fetchData()
-    }, [])
+    }, [url])
 
     return { data, isLoading, error }
 

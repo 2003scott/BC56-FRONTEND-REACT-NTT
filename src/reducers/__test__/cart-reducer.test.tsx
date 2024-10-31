@@ -145,7 +145,7 @@ describe('cartReducer', () => {
             ]
             const action: CartAction = {
                 type: CART_ACTION_TYPES.CLEAR_CART,
-                payload: mockProduct // payload is not used in this action
+                payload: mockProduct
             }
 
             const newState = cartReducer(initialState, action)
@@ -162,7 +162,7 @@ describe('cartReducer', () => {
         test('should return current state for invalid action type', () => {
             const initialState: Products[] = [{ ...mockProduct, quantity: 1 }]
             const action: CartAction = {
-                type: 'INVALID_ACTION' as any,
+                type: 'INVALID_ACTION',
                 payload: mockProduct
             }
 

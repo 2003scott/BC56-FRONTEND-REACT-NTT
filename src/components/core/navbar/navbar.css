@@ -50,3 +50,9 @@
     font-size: 2rem;
     color: white;
 }
+
+.user-contend {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
